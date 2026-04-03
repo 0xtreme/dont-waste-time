@@ -420,7 +420,7 @@ a:focus-visible {
 
 .detail-row-parents,
 .detail-row-pet {
-  grid-template-columns: 0.9fr 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .detail-row-children {
@@ -429,6 +429,12 @@ a:focus-visible {
 
 .detail-row-friend {
   grid-template-columns: 1fr;
+}
+
+#parentDistanceField,
+#petAgeField,
+.detail-row-friend .field {
+  grid-column: 1 / -1;
 }
 
 .field {
@@ -455,6 +461,11 @@ a:focus-visible {
   font-weight: 700;
   letter-spacing: -0.02em;
   font-size: 0.9rem;
+}
+
+.relationship-stack .field-label {
+  font-size: 0.82rem;
+  line-height: 1.15;
 }
 
 .field-value {
@@ -498,13 +509,14 @@ a:focus-visible {
 }
 
 .segmented {
-  display: inline-grid;
+  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.24rem;
   padding: 0.2rem;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.04);
+  width: 100%;
 }
 
 .segment-option {
@@ -512,9 +524,10 @@ a:focus-visible {
   background: transparent;
   color: var(--text-secondary);
   border-radius: 999px;
-  padding: 0.38rem 0.72rem;
-  font-size: 0.72rem;
+  padding: 0.34rem 0.4rem;
+  font-size: 0.66rem;
   font-weight: 700;
+  min-width: 0;
 }
 
 .segment-option.is-active {
