@@ -104,6 +104,7 @@ async function boot() {
   renderQuickAges();
   renderRoutineFields();
   hydrateStaticControls();
+  bindSegmentedControls();
   applyTheme(localStorage.getItem(THEME_KEY) || 'dark');
   bindEvents();
   syncDetailVisibility();
@@ -235,11 +236,12 @@ function renderQuickAges() {
 function renderRoutineFields() {
   els.routineFields.innerHTML = '';
 
-  Object.entries(defaultRoutine).forEach(([key, defaultValue]) => {
+  Object.entries(defaultRoutine).forEach(([key]) => {
     const node = els.rangeFieldTemplate.content.firstElementChild.cloneNode(true);
     const label = node.querySelector('.field-label');
     const value = node.querySelector('.field-value');
     const input = node.querySelector('input');
+    node.dataset.routine = key;
     label.textContent = routineLabels[key];
     value.textContent = `${state.profile.routine[key].toFixed(2)} h`;
     input.min = key === 'sleep' ? '4' : '0';
@@ -441,6 +443,7 @@ function renderLifeGrid(calc) {
 }
 
 function renderInsights() {
+  els.insightDeck.classList.toggle('expanded', state.insightCount > 6);
   els.insightDeck.innerHTML = state.insights
     .map(
       (insight) => `
@@ -453,6 +456,29 @@ function renderInsights() {
       `,
     )
     .join('');
+}
+
+function bindSegmentedControls() {
+  document.querySelectorAll('.segmented[data-for]').forEach((group) => {
+    const target = document.getElementById(group.dataset.for);
+    if (!target) return;
+
+    const sync = () => {
+      group.querySelectorAll('.segment-option').forEach((button) => {
+        button.classList.toggle('is-active', button.dataset.value === target.value);
+      });
+    };
+
+    group.querySelectorAll('.segment-option').forEach((button) => {
+      button.addEventListener('click', () => {
+        target.value = button.dataset.value;
+        target.dispatchEvent(new Event('change', { bubbles: true }));
+        sync();
+      });
+    });
+
+    sync();
+  });
 }
 
 function buildInsightDeck(profile, calc, datasets, reshuffle, limit = 6) {

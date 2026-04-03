@@ -83,13 +83,17 @@
                 <span class="rail-label">Daily routine</span>
                 <button id="resetRoutine" class="text-button" type="button">Reset defaults</button>
               </div>
-              <div id="routineFields" class="detail-grid"></div>
+              <div id="routineFields" class="detail-grid routine-grid"></div>
             </div>
 
-            <div class="detail-section detail-grid">
+            <div class="detail-section detail-grid relationship-grid">
               <label class="field compact-field">
                 <span class="field-label">Parents alive</span>
-                <select id="parentsAlive">
+                <div class="segmented" data-for="parentsAlive">
+                  <button class="segment-option" type="button" data-value="true">Yes</button>
+                  <button class="segment-option" type="button" data-value="false">No</button>
+                </div>
+                <select id="parentsAlive" class="visually-hidden">
                   <option value="true">Yes</option>
                   <option value="false">No</option>
                 </select>
@@ -111,7 +115,11 @@
 
               <label class="field compact-field">
                 <span class="field-label">Children</span>
-                <select id="childrenToggle">
+                <div class="segmented" data-for="childrenToggle">
+                  <button class="segment-option" type="button" data-value="true">Yes</button>
+                  <button class="segment-option" type="button" data-value="false">No</button>
+                </div>
+                <select id="childrenToggle" class="visually-hidden">
                   <option value="false">No</option>
                   <option value="true">Yes</option>
                 </select>
@@ -124,7 +132,11 @@
 
               <label class="field compact-field">
                 <span class="field-label">Pet</span>
-                <select id="petToggle">
+                <div class="segmented" data-for="petToggle">
+                  <button class="segment-option" type="button" data-value="true">Yes</button>
+                  <button class="segment-option" type="button" data-value="false">No</button>
+                </div>
+                <select id="petToggle" class="visually-hidden">
                   <option value="false">No</option>
                   <option value="true">Yes</option>
                 </select>

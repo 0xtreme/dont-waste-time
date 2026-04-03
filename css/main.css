@@ -346,9 +346,21 @@ a:focus-visible {
   display: none;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .detail-panel {
   display: grid;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .detail-panel.hidden-block {
@@ -370,7 +382,7 @@ a:focus-visible {
 
 .detail-section {
   display: grid;
-  gap: 0.8rem;
+  gap: 0.6rem;
 }
 
 .section-minihead,
@@ -384,21 +396,30 @@ a:focus-visible {
 
 .detail-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.8rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.routine-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.relationship-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .field {
   display: grid;
-  gap: 0.55rem;
-  padding: 0.85rem 0.95rem;
+  gap: 0.45rem;
+  padding: 0.68rem 0.78rem;
   border-radius: 1rem;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.03);
+  min-width: 0;
 }
 
 .compact-field {
-  padding: 0.8rem 0.9rem;
+  padding: 0.62rem 0.72rem;
 }
 
 .field-header {
@@ -410,12 +431,31 @@ a:focus-visible {
 .field-label {
   font-weight: 700;
   letter-spacing: -0.02em;
+  font-size: 0.9rem;
 }
 
 .field-value {
   color: var(--accent);
   font-family: var(--font-mono);
   font-size: 0.8rem;
+}
+
+.routine-grid .field {
+  gap: 0.32rem;
+  padding: 0.52rem 0.58rem;
+  border-radius: 0.86rem;
+}
+
+.routine-grid .field-label {
+  font-size: 0.76rem;
+}
+
+.routine-grid .field-value {
+  font-size: 0.68rem;
+}
+
+.routine-grid input[type="range"] {
+  height: 0.9rem;
 }
 
 .field input,
@@ -425,12 +465,39 @@ a:focus-visible {
   border: 1px solid var(--line);
   background: rgba(0, 0, 0, 0.16);
   color: var(--text-primary);
-  padding: 0.8rem 0.9rem;
+  padding: 0.58rem 0.72rem;
+  min-width: 0;
 }
 
 .field input[type="range"] {
   padding: 0;
   accent-color: var(--accent);
+}
+
+.segmented {
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.24rem;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.segment-option {
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: 999px;
+  padding: 0.38rem 0.72rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.segment-option.is-active {
+  background: rgba(232, 193, 112, 0.18);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 0 1px rgba(232, 193, 112, 0.22);
 }
 
 .hero-zone {
@@ -667,6 +734,10 @@ a:focus-visible {
   padding-right: 0;
 }
 
+.insight-stack.expanded {
+  gap: 0.48rem;
+}
+
 .micro-metrics {
   gap: 0.24rem;
 }
@@ -696,6 +767,10 @@ a:focus-visible {
   padding: 0.72rem;
   position: relative;
   overflow: hidden;
+}
+
+.insight-stack.expanded .insight-card {
+  padding: 0.54rem;
 }
 
 .insight-card::before {
@@ -736,6 +811,10 @@ a:focus-visible {
   letter-spacing: -0.05em;
 }
 
+.insight-stack.expanded .insight-number {
+  font-size: clamp(1.05rem, 1.7vw, 1.5rem);
+}
+
 .insight-text {
   margin: 0.4rem 0 0;
   color: var(--text-primary);
@@ -743,11 +822,23 @@ a:focus-visible {
   font-size: 0.88rem;
 }
 
+.insight-stack.expanded .insight-text {
+  margin-top: 0.28rem;
+  line-height: 1.32;
+  font-size: 0.74rem;
+}
+
 .insight-source {
   margin: 0.35rem 0 0;
   color: var(--text-secondary);
   font-size: 0.72rem;
   line-height: 1.4;
+}
+
+.insight-stack.expanded .insight-source {
+  margin-top: 0.22rem;
+  font-size: 0.62rem;
+  line-height: 1.28;
 }
 
 .rail-footnote {
@@ -953,6 +1044,17 @@ a:focus-visible {
   .compact-head,
   .section-minihead {
     gap: 0.45rem;
+  }
+
+  .detail-grid,
+  .routine-grid,
+  .relationship-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .segment-option {
+    padding: 0.34rem 0.6rem;
+    font-size: 0.68rem;
   }
 
   .life-grid-svg {
