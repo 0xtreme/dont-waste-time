@@ -532,8 +532,8 @@ a:focus-visible {
 
 .hero-zone {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 118px;
-  gap: 0.44rem;
+  grid-template-columns: minmax(0, 1fr) 104px;
+  gap: 0.34rem;
   align-items: start;
 }
 
@@ -554,7 +554,7 @@ a:focus-visible {
 }
 
 .hero-visual-card {
-  padding: 0.62rem;
+  padding: 0.5rem;
   display: grid;
   align-self: start;
   height: fit-content;
@@ -562,7 +562,7 @@ a:focus-visible {
 
 .hourglass-mini {
   position: relative;
-  height: 58px;
+  height: 48px;
   border-radius: 1.15rem;
   border: 1px solid rgba(232, 193, 112, 0.2);
   background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
@@ -628,8 +628,8 @@ a:focus-visible {
 .hero-stats-inline .stat-pill {
   flex: 1 1 0;
   min-width: 0;
-  padding: 0.4rem 0.55rem;
-  gap: 0.3rem;
+  padding: 0.36rem 0.52rem;
+  gap: 0.24rem;
 }
 
 .stat-pill strong,
@@ -661,16 +661,16 @@ a:focus-visible {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  gap: 0.56rem;
+  gap: 0.46rem;
   align-content: start;
 }
 
 .overview-card {
   min-height: 0;
-  padding: 0.76rem;
+  padding: 0.72rem;
   display: grid;
   grid-template-rows: auto auto auto;
-  gap: 0.5rem;
+  gap: 0.42rem;
 }
 
 .meaning-card {
@@ -798,7 +798,7 @@ a:focus-visible {
 }
 
 .insight-card {
-  padding: 0.78rem;
+  padding: 0.84rem;
   position: relative;
   overflow: hidden;
 }
@@ -836,7 +836,7 @@ a:focus-visible {
 .insight-number {
   margin: 0.3rem 0 0;
   font-family: var(--font-display);
-  font-size: clamp(1.32rem, 1.95vw, 1.95rem);
+  font-size: clamp(1.42rem, 2.05vw, 2.05rem);
   line-height: 0.92;
   letter-spacing: -0.05em;
 }
@@ -844,26 +844,26 @@ a:focus-visible {
 .insight-text {
   margin: 0.4rem 0 0;
   color: var(--text-primary);
-  line-height: 1.42;
-  font-size: 0.88rem;
+  line-height: 1.46;
+  font-size: 0.93rem;
 }
 
 .insight-stack.expanded .insight-text {
   margin-top: 0.4rem;
-  line-height: 1.42;
-  font-size: 0.88rem;
+  line-height: 1.46;
+  font-size: 0.93rem;
 }
 
 .insight-source {
   margin: 0.35rem 0 0;
   color: var(--text-secondary);
-  font-size: 0.71rem;
+  font-size: 0.74rem;
   line-height: 1.3;
 }
 
 .insight-stack.expanded .insight-source {
   margin-top: 0.35rem;
-  font-size: 0.71rem;
+  font-size: 0.74rem;
   line-height: 1.3;
 }
 
