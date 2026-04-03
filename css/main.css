@@ -533,7 +533,7 @@ a:focus-visible {
 
 .hero-zone {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 104px;
+  grid-template-columns: minmax(0, 1fr) 124px;
   gap: 0.34rem;
   align-items: start;
   margin-bottom: -0.08rem;
@@ -556,7 +556,7 @@ a:focus-visible {
 }
 
 .hero-visual-card {
-  padding: 0.5rem;
+  padding: 0.58rem;
   display: grid;
   align-self: start;
   height: fit-content;
@@ -564,7 +564,7 @@ a:focus-visible {
 
 .hourglass-mini {
   position: relative;
-  height: 48px;
+  height: 62px;
   border-radius: 1.15rem;
   border: 1px solid rgba(232, 193, 112, 0.2);
   background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
@@ -790,8 +790,8 @@ a:focus-visible {
 }
 
 .micro-card .stat-label {
-  font-size: 0.62rem;
-  line-height: 1.2;
+  font-size: 0.72rem;
+  line-height: 1.25;
 }
 
 .micro-card strong {
