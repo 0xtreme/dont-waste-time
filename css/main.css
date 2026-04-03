@@ -195,6 +195,7 @@ a:focus-visible {
   gap: 0.56rem;
   overflow: hidden;
   align-self: stretch;
+  align-content: start;
 }
 
 .insights-rail {
@@ -535,6 +536,7 @@ a:focus-visible {
   grid-template-columns: minmax(0, 1fr) 104px;
   gap: 0.34rem;
   align-items: start;
+  margin-bottom: -0.08rem;
 }
 
 .hero-copy {
@@ -623,6 +625,7 @@ a:focus-visible {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
+  margin-top: -0.08rem;
 }
 
 .hero-stats-inline .stat-pill {
@@ -663,6 +666,7 @@ a:focus-visible {
   grid-template-rows: auto auto;
   gap: 0.46rem;
   align-content: start;
+  margin-top: -0.06rem;
 }
 
 .overview-card {
