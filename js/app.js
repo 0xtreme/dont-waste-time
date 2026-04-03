@@ -169,6 +169,14 @@ function bindEvents() {
     state.insights = buildInsightDeck(state.profile, state.calculation, state.datasets, true);
     renderInsights();
   });
+
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(() => {
+      if (state.calculation) renderLifeGrid(state.calculation);
+    }, 120);
+  });
 }
 
 function applyTheme(theme) {
@@ -341,6 +349,16 @@ function renderLifeGrid(calc) {
   const totalMonths = Math.round(calc.expectancy * 12);
   const lived = Math.min(calc.livedMonths, totalMonths);
   const routine = Math.min(calc.routineMonthsRemaining, Math.max(totalMonths - lived, 0));
+  const columns = window.matchMedia('(max-width: 720px)').matches
+    ? 30
+    : window.matchMedia('(max-width: 960px)').matches
+      ? 38
+      : 52;
+  const rows = Math.ceil(totalMonths / columns);
+  const step = 10;
+  const radius = window.matchMedia('(max-width: 720px)').matches ? 2.65 : 2.15;
+  const width = columns * step;
+  const height = rows * step;
 
   els.lifeGridLegend.innerHTML = [
     ['lived', 'Lived'],
@@ -353,14 +371,29 @@ function renderLifeGrid(calc) {
     )
     .join('');
 
-  const cells = [];
+  const dots = [];
   for (let index = 0; index < totalMonths; index += 1) {
     let tone = 'free';
     if (index < lived) tone = 'lived';
     else if (index < lived + routine) tone = 'routine';
-    cells.push(`<div class="month-cell ${tone}" title="Month ${index + 1}"></div>`);
+    const column = index % columns;
+    const row = Math.floor(index / columns);
+    const cx = column * step + step / 2;
+    const cy = row * step + step / 2;
+    dots.push(`<circle class="life-dot ${tone}" cx="${cx}" cy="${cy}" r="${radius}" />`);
   }
-  els.lifeGrid.innerHTML = cells.join('');
+
+  els.lifeGrid.innerHTML = `
+    <svg
+      class="life-grid-svg"
+      viewBox="0 0 ${width} ${height}"
+      role="img"
+      aria-label="Life in months dot matrix"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      ${dots.join('')}
+    </svg>
+  `;
 }
 
 function renderInsights() {

@@ -139,7 +139,7 @@ a:focus-visible {
 .onepage-layout {
   min-height: calc(100dvh - 2.9rem);
   display: grid;
-  grid-template-columns: 258px minmax(0, 1fr) 356px;
+  grid-template-columns: 272px minmax(0, 1fr) 348px;
   gap: 0.65rem;
   padding: 0.5rem 0.8rem 0.75rem;
 }
@@ -166,14 +166,14 @@ a:focus-visible {
 }
 
 .control-rail {
-  padding: 0.75rem;
+  padding: 0.82rem;
   gap: 0.65rem;
   overflow-y: auto;
   align-self: start;
 }
 
 .stage-panel {
-  padding: 0.72rem;
+  padding: 0.8rem;
   display: grid;
   grid-template-rows: auto auto minmax(0, 1fr);
   gap: 0.55rem;
@@ -181,7 +181,7 @@ a:focus-visible {
 }
 
 .insights-rail {
-  padding: 0.72rem;
+  padding: 0.78rem;
   gap: 0.55rem;
 }
 
@@ -208,7 +208,7 @@ a:focus-visible {
 }
 
 .rail-block {
-  padding: 0.8rem;
+  padding: 0.88rem;
 }
 
 .rail-intro {
@@ -220,7 +220,7 @@ a:focus-visible {
 .rail-intro h1 {
   margin: 0.22rem 0 0;
   font-family: var(--font-display);
-  font-size: clamp(1.65rem, 2.6vw, 2.45rem);
+  font-size: clamp(1.78rem, 2.75vw, 2.6rem);
   line-height: 0.95;
   letter-spacing: -0.05em;
 }
@@ -258,7 +258,7 @@ a:focus-visible {
 
 .age-display strong {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4.3vw, 3rem);
+  font-size: clamp(2.15rem, 4.5vw, 3.2rem);
   line-height: 0.9;
   color: var(--accent);
 }
@@ -417,7 +417,7 @@ a:focus-visible {
 
 .hero-zone {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 110px;
+  grid-template-columns: minmax(0, 1fr) 126px;
   gap: 0.45rem;
 }
 
@@ -430,7 +430,7 @@ a:focus-visible {
 .hero-number {
   margin: 0.14rem 0 0;
   font-family: var(--font-display);
-  font-size: clamp(1.45rem, 2.8vw, 2.85rem);
+  font-size: clamp(1.72rem, 3vw, 3.2rem);
   line-height: 0.9;
   letter-spacing: -0.06em;
   color: var(--accent);
@@ -438,13 +438,13 @@ a:focus-visible {
 }
 
 .hero-visual-card {
-  padding: 0.42rem;
+  padding: 0.48rem;
   display: grid;
 }
 
 .hourglass-mini {
   position: relative;
-  height: 42px;
+  height: 46px;
   border-radius: 1rem;
   border: 1px solid rgba(232, 193, 112, 0.2);
   background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
@@ -510,7 +510,7 @@ a:focus-visible {
 .hero-stats-inline .stat-pill {
   flex: 1 1 0;
   min-width: 0;
-  padding: 0.32rem 0.46rem;
+  padding: 0.38rem 0.52rem;
   gap: 0.32rem;
 }
 
@@ -523,14 +523,14 @@ a:focus-visible {
 
 .hero-stats-inline .stat-pill strong {
   margin-top: 0.08rem;
-  font-size: 0.74rem;
+  font-size: 0.78rem;
 }
 
 .stat-pill,
 .micro-card {
   border-radius: 0.86rem;
   border: 1px solid var(--line);
-  padding: 0.45rem 0.55rem;
+  padding: 0.48rem 0.58rem;
   background: rgba(255, 255, 255, 0.03);
 }
 
@@ -543,12 +543,12 @@ a:focus-visible {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.72fr);
   grid-template-rows: minmax(0, 1fr);
-  gap: 0.52rem;
+  gap: 0.58rem;
 }
 
 .overview-card {
   min-height: 0;
-  padding: 0.58rem;
+  padding: 0.68rem;
   display: grid;
   grid-template-rows: auto auto 1fr;
   gap: 0.45rem;
@@ -565,31 +565,31 @@ a:focus-visible {
 
 .life-grid {
   min-height: 0;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(40, minmax(0, 1fr));
-  grid-auto-rows: minmax(0, 1fr);
-  align-content: stretch;
-  gap: 0.1rem;
+  height: auto;
+  padding: 0.12rem 0 0;
 }
 
-.month-cell {
-  min-height: 0;
-  border-radius: 0.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.04);
+.life-grid-svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.month-cell.lived {
-  background: linear-gradient(180deg, rgba(220, 154, 112, 0.98), rgba(201, 96, 78, 0.92));
+.life-dot {
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 0.8;
 }
 
-.month-cell.routine {
-  background: rgba(255, 255, 255, 0.1);
+.life-dot.lived {
+  fill: #d88568;
 }
 
-.month-cell.free {
-  background: linear-gradient(180deg, rgba(236, 200, 118, 0.98), rgba(138, 184, 149, 0.94));
+.life-dot.routine {
+  fill: rgba(255, 255, 255, 0.18);
+}
+
+.life-dot.free {
+  fill: #9abf8d;
 }
 
 .grid-legend {
@@ -609,20 +609,20 @@ a:focus-visible {
 .legend-swatch {
   width: 0.85rem;
   height: 0.85rem;
-  border-radius: 0.2rem;
+  border-radius: 999px;
   border: 1px solid var(--line);
 }
 
 .legend-swatch.lived {
-  background: linear-gradient(180deg, rgba(212, 149, 106, 0.88), rgba(196, 91, 74, 0.78));
+  background: #d88568;
 }
 
 .legend-swatch.routine {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .legend-swatch.free {
-  background: linear-gradient(180deg, rgba(232, 193, 112, 0.95), rgba(123, 166, 138, 0.9));
+  background: #9abf8d;
 }
 
 .reflection-card {
@@ -718,13 +718,13 @@ a:focus-visible {
   margin: 0.3rem 0 0;
   color: var(--text-primary);
   line-height: 1.35;
-  font-size: 0.75rem;
+  font-size: 0.79rem;
 }
 
 .insight-source {
   margin: 0.25rem 0 0;
   color: var(--text-secondary);
-  font-size: 0.63rem;
+  font-size: 0.65rem;
   line-height: 1.35;
 }
 
@@ -845,10 +845,6 @@ a:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .life-grid {
-    grid-template-columns: repeat(28, minmax(0, 1fr));
-  }
-
   .insight-stack {
     grid-template-columns: 1fr;
     overflow: visible;
@@ -936,14 +932,9 @@ a:focus-visible {
     gap: 0.45rem;
   }
 
-  .life-grid {
-    grid-template-columns: repeat(14, minmax(0, 1fr));
-    gap: 0.12rem;
-  }
-
-  .month-cell {
-    min-height: 0.24rem;
-    border-radius: 0.1rem;
+  .life-grid-svg {
+    transform: scale(0.96);
+    transform-origin: top center;
   }
 
   .grid-legend {
@@ -1039,12 +1030,9 @@ a:focus-visible {
     gap: 0.5rem;
   }
 
-  .life-grid {
-    gap: 0.09rem;
-  }
-
-  .month-cell {
-    border-radius: 0.14rem;
+  .life-grid-svg {
+    transform: scale(0.92);
+    transform-origin: top center;
   }
 
   .insight-number {
