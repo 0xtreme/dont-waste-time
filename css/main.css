@@ -408,6 +408,29 @@ a:focus-visible {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.relationship-stack {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.detail-row {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.detail-row-parents,
+.detail-row-pet {
+  grid-template-columns: 0.9fr 1fr 1fr;
+}
+
+.detail-row-children {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.detail-row-friend {
+  grid-template-columns: 1fr;
+}
+
 .field {
   display: grid;
   gap: 0.45rem;
@@ -1048,7 +1071,12 @@ a:focus-visible {
 
   .detail-grid,
   .routine-grid,
-  .relationship-grid {
+  .relationship-grid,
+  .detail-row,
+  .detail-row-parents,
+  .detail-row-children,
+  .detail-row-pet,
+  .detail-row-friend {
     grid-template-columns: 1fr;
   }
 

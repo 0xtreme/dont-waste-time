@@ -86,80 +86,88 @@
               <div id="routineFields" class="detail-grid routine-grid"></div>
             </div>
 
-            <div class="detail-section detail-grid relationship-grid">
-              <label class="field compact-field">
-                <span class="field-label">Parents alive</span>
-                <div class="segmented" data-for="parentsAlive">
-                  <button class="segment-option" type="button" data-value="true">Yes</button>
-                  <button class="segment-option" type="button" data-value="false">No</button>
-                </div>
-                <select id="parentsAlive" class="visually-hidden">
-                  <option value="true">Yes</option>
-                  <option value="false">No</option>
-                </select>
-              </label>
+            <div class="detail-section relationship-stack">
+              <div class="detail-row detail-row-parents">
+                <label class="field compact-field">
+                  <span class="field-label">Parents alive</span>
+                  <div class="segmented" data-for="parentsAlive">
+                    <button class="segment-option" type="button" data-value="true">Yes</button>
+                    <button class="segment-option" type="button" data-value="false">No</button>
+                  </div>
+                  <select id="parentsAlive" class="visually-hidden">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                  </select>
+                </label>
 
-              <label class="field compact-field detail-dependent" id="parentAgesField">
-                <span class="field-label">Parent ages</span>
-                <input id="parentAges" type="text" value="62, 58" placeholder="62, 58" />
-              </label>
+                <label class="field compact-field detail-dependent" id="parentAgesField">
+                  <span class="field-label">Parent ages</span>
+                  <input id="parentAges" type="text" value="62, 58" placeholder="62, 58" />
+                </label>
 
-              <label class="field compact-field detail-dependent" id="parentDistanceField">
-                <span class="field-label">Distance from parents</span>
-                <select id="parentDistance">
-                  <option value="same_city">Same city</option>
-                  <option value="same_country">Same country</option>
-                  <option value="different_country">Different country</option>
-                </select>
-              </label>
+                <label class="field compact-field detail-dependent" id="parentDistanceField">
+                  <span class="field-label">Distance from parents</span>
+                  <select id="parentDistance">
+                    <option value="same_city">Same city</option>
+                    <option value="same_country">Same country</option>
+                    <option value="different_country">Different country</option>
+                  </select>
+                </label>
+              </div>
 
-              <label class="field compact-field">
-                <span class="field-label">Children</span>
-                <div class="segmented" data-for="childrenToggle">
-                  <button class="segment-option" type="button" data-value="true">Yes</button>
-                  <button class="segment-option" type="button" data-value="false">No</button>
-                </div>
-                <select id="childrenToggle" class="visually-hidden">
-                  <option value="false">No</option>
-                  <option value="true">Yes</option>
-                </select>
-              </label>
+              <div class="detail-row detail-row-children">
+                <label class="field compact-field">
+                  <span class="field-label">Children</span>
+                  <div class="segmented" data-for="childrenToggle">
+                    <button class="segment-option" type="button" data-value="true">Yes</button>
+                    <button class="segment-option" type="button" data-value="false">No</button>
+                  </div>
+                  <select id="childrenToggle" class="visually-hidden">
+                    <option value="false">No</option>
+                    <option value="true">Yes</option>
+                  </select>
+                </label>
 
-              <label class="field compact-field detail-dependent" id="childAgeField">
-                <span class="field-label">Youngest child age</span>
-                <input id="childAge" type="number" min="0" max="17" value="6" />
-              </label>
+                <label class="field compact-field detail-dependent" id="childAgeField">
+                  <span class="field-label">Youngest child age</span>
+                  <input id="childAge" type="number" min="0" max="17" value="6" />
+                </label>
+              </div>
 
-              <label class="field compact-field">
-                <span class="field-label">Pet</span>
-                <div class="segmented" data-for="petToggle">
-                  <button class="segment-option" type="button" data-value="true">Yes</button>
-                  <button class="segment-option" type="button" data-value="false">No</button>
-                </div>
-                <select id="petToggle" class="visually-hidden">
-                  <option value="false">No</option>
-                  <option value="true">Yes</option>
-                </select>
-              </label>
+              <div class="detail-row detail-row-pet">
+                <label class="field compact-field">
+                  <span class="field-label">Pet</span>
+                  <div class="segmented" data-for="petToggle">
+                    <button class="segment-option" type="button" data-value="true">Yes</button>
+                    <button class="segment-option" type="button" data-value="false">No</button>
+                  </div>
+                  <select id="petToggle" class="visually-hidden">
+                    <option value="false">No</option>
+                    <option value="true">Yes</option>
+                  </select>
+                </label>
 
-              <label class="field compact-field detail-dependent" id="petTypeField">
-                <span class="field-label">Pet type</span>
-                <select id="petType"></select>
-              </label>
+                <label class="field compact-field detail-dependent" id="petTypeField">
+                  <span class="field-label">Pet type</span>
+                  <select id="petType"></select>
+                </label>
 
-              <label class="field compact-field detail-dependent" id="petAgeField">
-                <span class="field-label">Pet age</span>
-                <input id="petAge" type="number" min="0" max="30" value="4" />
-              </label>
+                <label class="field compact-field detail-dependent" id="petAgeField">
+                  <span class="field-label">Pet age</span>
+                  <input id="petAge" type="number" min="0" max="30" value="4" />
+                </label>
+              </div>
 
-              <label class="field compact-field">
-                <span class="field-label">Closest friend cadence</span>
-                <select id="friendFrequency">
-                  <option value="weekly">Weekly</option>
-                  <option value="monthly" selected>Monthly</option>
-                  <option value="rarely">A few times a year</option>
-                </select>
-              </label>
+              <div class="detail-row detail-row-friend">
+                <label class="field compact-field">
+                  <span class="field-label">Closest friend cadence</span>
+                  <select id="friendFrequency">
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly" selected>Monthly</option>
+                    <option value="rarely">A few times a year</option>
+                  </select>
+                </label>
+              </div>
             </div>
           </div>
         </aside>
