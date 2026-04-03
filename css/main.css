@@ -184,7 +184,8 @@ a:focus-visible {
   padding: 0.95rem;
   gap: 0.8rem;
   overflow-y: auto;
-  align-self: start;
+  align-self: stretch;
+  scrollbar-gutter: stable;
 }
 
 .stage-panel {
