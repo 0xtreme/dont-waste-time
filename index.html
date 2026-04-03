@@ -95,12 +95,12 @@
                 </select>
               </label>
 
-              <label class="field compact-field">
+              <label class="field compact-field detail-dependent" id="parentAgesField">
                 <span class="field-label">Parent ages</span>
                 <input id="parentAges" type="text" value="62, 58" placeholder="62, 58" />
               </label>
 
-              <label class="field compact-field">
+              <label class="field compact-field detail-dependent" id="parentDistanceField">
                 <span class="field-label">Distance from parents</span>
                 <select id="parentDistance">
                   <option value="same_city">Same city</option>
@@ -117,7 +117,7 @@
                 </select>
               </label>
 
-              <label class="field compact-field">
+              <label class="field compact-field detail-dependent" id="childAgeField">
                 <span class="field-label">Youngest child age</span>
                 <input id="childAge" type="number" min="0" max="17" value="6" />
               </label>
@@ -130,12 +130,12 @@
                 </select>
               </label>
 
-              <label class="field compact-field">
+              <label class="field compact-field detail-dependent" id="petTypeField">
                 <span class="field-label">Pet type</span>
                 <select id="petType"></select>
               </label>
 
-              <label class="field compact-field">
+              <label class="field compact-field detail-dependent" id="petAgeField">
                 <span class="field-label">Pet age</span>
                 <input id="petAge" type="number" min="0" max="30" value="4" />
               </label>
@@ -218,9 +218,6 @@
             <div class="insight-actions">
               <button id="toggleInsights" class="ghost-button compact-button" type="button">
                 Show more
-              </button>
-              <button id="refreshInsights" class="ghost-button compact-button" type="button">
-                Refresh
               </button>
             </div>
           </div>

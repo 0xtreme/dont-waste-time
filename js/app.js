@@ -67,12 +67,17 @@ const els = {
   resetRoutine: document.getElementById('resetRoutine'),
   routineFields: document.getElementById('routineFields'),
   parentsAlive: document.getElementById('parentsAlive'),
+  parentAgesField: document.getElementById('parentAgesField'),
+  parentDistanceField: document.getElementById('parentDistanceField'),
   parentAges: document.getElementById('parentAges'),
   parentDistance: document.getElementById('parentDistance'),
   childrenToggle: document.getElementById('childrenToggle'),
+  childAgeField: document.getElementById('childAgeField'),
   childAge: document.getElementById('childAge'),
   petToggle: document.getElementById('petToggle'),
+  petTypeField: document.getElementById('petTypeField'),
   petType: document.getElementById('petType'),
+  petAgeField: document.getElementById('petAgeField'),
   petAge: document.getElementById('petAge'),
   friendFrequency: document.getElementById('friendFrequency'),
   heroNumber: document.getElementById('heroNumber'),
@@ -87,7 +92,6 @@ const els = {
   microMetrics: document.getElementById('microMetrics'),
   insightDeck: document.getElementById('insightDeck'),
   toggleInsights: document.getElementById('toggleInsights'),
-  refreshInsights: document.getElementById('refreshInsights'),
   rangeFieldTemplate: document.getElementById('rangeFieldTemplate'),
 };
 
@@ -102,6 +106,7 @@ async function boot() {
   hydrateStaticControls();
   applyTheme(localStorage.getItem(THEME_KEY) || 'dark');
   bindEvents();
+  syncDetailVisibility();
   recompute();
 }
 
@@ -159,10 +164,12 @@ function bindEvents() {
   ].forEach(([id, key, parser]) => {
     els[id].addEventListener('input', () => {
       state.profile[key] = parser(els[id].value);
+      syncDetailVisibility();
       recompute();
     });
     els[id].addEventListener('change', () => {
       state.profile[key] = parser(els[id].value);
+      syncDetailVisibility();
       recompute();
     });
   });
@@ -177,17 +184,6 @@ function bindEvents() {
     state.profile.parentAges = els.parentAges.value;
     state.parentAgesAuto = normalizeAgesText(els.parentAges.value) === normalizeAgesText(deriveParentAgeString(state.profile.age));
     recompute();
-  });
-
-  els.refreshInsights.addEventListener('click', () => {
-    state.insights = buildInsightDeck(
-      buildEffectiveProfile(),
-      state.calculation,
-      state.datasets,
-      true,
-      state.insightCount,
-    );
-    renderInsights();
   });
 
   els.toggleInsights.addEventListener('click', () => {
@@ -296,6 +292,18 @@ function recompute() {
   );
   renderOverview();
   renderInsights();
+}
+
+function syncDetailVisibility() {
+  const showParents = state.profile.parentsAlive;
+  const showChildAge = state.profile.children;
+  const showPet = state.profile.pet;
+
+  els.parentAgesField.classList.toggle('hidden-block', !showParents);
+  els.parentDistanceField.classList.toggle('hidden-block', !showParents);
+  els.childAgeField.classList.toggle('hidden-block', !showChildAge);
+  els.petTypeField.classList.toggle('hidden-block', !showPet);
+  els.petAgeField.classList.toggle('hidden-block', !showPet);
 }
 
 function buildEffectiveProfile() {
