@@ -192,7 +192,7 @@ a:focus-visible {
   padding: 0.95rem;
   display: grid;
   grid-template-rows: auto auto auto;
-  gap: 0.56rem;
+  gap: 0.66rem;
   overflow: hidden;
   align-self: stretch;
   align-content: start;
@@ -536,7 +536,7 @@ a:focus-visible {
   grid-template-columns: minmax(0, 1fr) 124px;
   gap: 0.34rem;
   align-items: start;
-  margin-bottom: -0.08rem;
+  margin-bottom: 0.02rem;
 }
 
 .hero-copy {
@@ -625,7 +625,7 @@ a:focus-visible {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  margin-top: -0.08rem;
+  margin-top: 0.02rem;
 }
 
 .hero-stats-inline .stat-pill {
@@ -664,9 +664,9 @@ a:focus-visible {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  gap: 0.46rem;
+  gap: 0.62rem;
   align-content: start;
-  margin-top: -0.06rem;
+  margin-top: 0.04rem;
 }
 
 .overview-card {
@@ -674,7 +674,7 @@ a:focus-visible {
   padding: 0.72rem;
   display: grid;
   grid-template-rows: auto auto auto;
-  gap: 0.42rem;
+  gap: 0.5rem;
 }
 
 .meaning-card {

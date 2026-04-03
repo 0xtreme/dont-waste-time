@@ -3,7 +3,7 @@ const THEME_KEY = 'dont-waste-time-theme';
 const state = {
   datasets: null,
   detailedMode: false,
-  insightCount: 6,
+  insightCount: 9,
   parentAgesAuto: true,
   profile: {
     age: 34,
@@ -106,6 +106,7 @@ async function boot() {
   hydrateStaticControls();
   bindSegmentedControls();
   applyTheme(localStorage.getItem(THEME_KEY) || 'dark');
+  els.toggleInsights.textContent = state.insightCount === 6 ? 'Show more' : 'Show less';
   bindEvents();
   syncDetailVisibility();
   recompute();
