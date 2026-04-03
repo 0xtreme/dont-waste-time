@@ -429,11 +429,11 @@ a:focus-visible {
 .hero-number {
   margin: 0.22rem 0 0;
   font-family: var(--font-display);
-  font-size: clamp(2.7rem, 6.1vw, 5.2rem);
+  font-size: clamp(2rem, 3.8vw, 4rem);
   line-height: 0.9;
   letter-spacing: -0.06em;
   color: var(--accent);
-  max-width: 8ch;
+  white-space: nowrap;
 }
 
 .hero-visual-card {
@@ -880,7 +880,7 @@ a:focus-visible {
   }
 
   .hero-number {
-    max-width: none;
+    white-space: normal;
   }
 
   .age-display-wrap {
