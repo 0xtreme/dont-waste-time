@@ -399,10 +399,10 @@ function renderLifeGrid(calc) {
     ? 30
     : window.matchMedia('(max-width: 960px)').matches
       ? 38
-      : 52;
+      : 58;
   const rows = Math.ceil(totalMonths / columns);
-  const step = 10;
-  const radius = window.matchMedia('(max-width: 720px)').matches ? 2.65 : 2.15;
+  const step = window.matchMedia('(max-width: 720px)').matches ? 10 : 9;
+  const radius = window.matchMedia('(max-width: 720px)').matches ? 2.45 : 1.7;
   const width = columns * step;
   const height = rows * step;
 
