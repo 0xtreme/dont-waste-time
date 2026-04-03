@@ -106,7 +106,7 @@ async function boot() {
   hydrateStaticControls();
   bindSegmentedControls();
   applyTheme(localStorage.getItem(THEME_KEY) || 'dark');
-  els.toggleInsights.textContent = state.insightCount === 6 ? 'Show more' : 'Show less';
+  els.toggleInsights.textContent = state.insightCount <= 9 ? 'Show more' : 'Show less';
   bindEvents();
   syncDetailVisibility();
   recompute();
@@ -189,8 +189,8 @@ function bindEvents() {
   });
 
   els.toggleInsights.addEventListener('click', () => {
-    state.insightCount = state.insightCount === 6 ? 9 : 6;
-    els.toggleInsights.textContent = state.insightCount === 6 ? 'Show more' : 'Show less';
+    state.insightCount = state.insightCount <= 9 ? 12 : 9;
+    els.toggleInsights.textContent = state.insightCount <= 9 ? 'Show more' : 'Show less';
     recompute();
   });
 
