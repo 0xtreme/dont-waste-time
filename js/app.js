@@ -524,7 +524,7 @@ function buildInsightDeck(profile, calc, datasets, reshuffle) {
   });
 
   const ordered = reshuffle ? shuffle(base) : [...base];
-  return ordered.sort((a, b) => b.score - a.score).slice(0, 6);
+  return ordered.sort((a, b) => b.score - a.score).slice(0, 4);
 }
 
 function getExpectancy(country, table) {
