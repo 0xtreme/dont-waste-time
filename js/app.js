@@ -3,6 +3,8 @@ const THEME_KEY = 'dont-waste-time-theme';
 const state = {
   datasets: null,
   detailedMode: false,
+  insightCount: 6,
+  parentAgesAuto: true,
   profile: {
     age: 34,
     originCountry: 'Global average',
@@ -17,7 +19,7 @@ const state = {
       admin: 0.5,
     },
     parentsAlive: true,
-    parentAges: '62, 58',
+    parentAges: deriveParentAgeString(34),
     parentDistance: 'same_city',
     children: false,
     childAge: 6,
@@ -84,6 +86,7 @@ const els = {
   reflectionCard: document.getElementById('reflectionCard'),
   microMetrics: document.getElementById('microMetrics'),
   insightDeck: document.getElementById('insightDeck'),
+  toggleInsights: document.getElementById('toggleInsights'),
   refreshInsights: document.getElementById('refreshInsights'),
   rangeFieldTemplate: document.getElementById('rangeFieldTemplate'),
 };
@@ -146,7 +149,6 @@ function bindEvents() {
 
   [
     ['parentsAlive', 'parentsAlive', (value) => value === 'true'],
-    ['parentAges', 'parentAges', (value) => value],
     ['parentDistance', 'parentDistance', (value) => value],
     ['childrenToggle', 'children', (value) => value === 'true'],
     ['childAge', 'childAge', (value) => Number(value || 0)],
@@ -165,9 +167,33 @@ function bindEvents() {
     });
   });
 
+  els.parentAges.addEventListener('input', () => {
+    state.profile.parentAges = els.parentAges.value;
+    state.parentAgesAuto = normalizeAgesText(els.parentAges.value) === normalizeAgesText(deriveParentAgeString(state.profile.age));
+    recompute();
+  });
+
+  els.parentAges.addEventListener('change', () => {
+    state.profile.parentAges = els.parentAges.value;
+    state.parentAgesAuto = normalizeAgesText(els.parentAges.value) === normalizeAgesText(deriveParentAgeString(state.profile.age));
+    recompute();
+  });
+
   els.refreshInsights.addEventListener('click', () => {
-    state.insights = buildInsightDeck(state.profile, state.calculation, state.datasets, true);
+    state.insights = buildInsightDeck(
+      buildEffectiveProfile(),
+      state.calculation,
+      state.datasets,
+      true,
+      state.insightCount,
+    );
     renderInsights();
+  });
+
+  els.toggleInsights.addEventListener('click', () => {
+    state.insightCount = state.insightCount === 6 ? 9 : 6;
+    els.toggleInsights.textContent = state.insightCount === 6 ? 'Show more' : 'Show less';
+    recompute();
   });
 
   let resizeTimer = null;
@@ -249,6 +275,10 @@ function hydrateStaticControls() {
 function updateAge(age, rerender = true) {
   const clamped = Math.max(5, Math.min(100, age));
   state.profile.age = clamped;
+  if (state.parentAgesAuto) {
+    state.profile.parentAges = deriveParentAgeString(clamped);
+    els.parentAges.value = state.profile.parentAges;
+  }
   els.ageRange.value = String(clamped);
   els.ageDisplay.textContent = String(clamped);
   if (rerender) recompute();
@@ -257,7 +287,13 @@ function updateAge(age, rerender = true) {
 function recompute() {
   const effectiveProfile = buildEffectiveProfile();
   state.calculation = calculateProfile(effectiveProfile, state.datasets);
-  state.insights = buildInsightDeck(effectiveProfile, state.calculation, state.datasets, false);
+  state.insights = buildInsightDeck(
+    effectiveProfile,
+    state.calculation,
+    state.datasets,
+    false,
+    state.insightCount,
+  );
   renderOverview();
   renderInsights();
 }
@@ -411,7 +447,7 @@ function renderInsights() {
     .join('');
 }
 
-function buildInsightDeck(profile, calc, datasets, reshuffle) {
+function buildInsightDeck(profile, calc, datasets, reshuffle, limit = 6) {
   const pet = datasets.pets.find((entry) => entry.type === profile.petType) || datasets.pets[0];
   const parentVisits = { same_city: 52, same_country: 6, different_country: 1.5 };
   const friendMeetups = { weekly: 52, monthly: 12, rarely: 4 };
@@ -557,7 +593,7 @@ function buildInsightDeck(profile, calc, datasets, reshuffle) {
   });
 
   const ordered = reshuffle ? shuffle(base) : [...base];
-  return ordered.sort((a, b) => b.score - a.score).slice(0, 6);
+  return ordered.sort((a, b) => b.score - a.score).slice(0, limit);
 }
 
 function getExpectancy(country, table) {
@@ -607,6 +643,18 @@ function frequencyLabel(key) {
   if (key === 'weekly') return 'weekly';
   if (key === 'monthly') return 'monthly';
   return 'a few times a year';
+}
+
+function deriveParentAgeString(age) {
+  return `${Math.max(age + 28, 18)}, ${Math.max(age + 32, 18)}`;
+}
+
+function normalizeAgesText(value) {
+  return value
+    .split(',')
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .join(', ');
 }
 
 function shuffle(items) {

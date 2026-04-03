@@ -142,12 +142,21 @@ a:focus-visible {
   flex-wrap: wrap;
 }
 
+.insight-actions {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .onepage-layout {
   min-height: calc(100dvh - 2.9rem);
+  height: calc(100dvh - 2.9rem);
   display: grid;
   grid-template-columns: 286px minmax(0, 1fr) 356px;
   gap: 0.8rem;
   padding: 0.7rem 1rem 0.95rem;
+  align-items: stretch;
 }
 
 .panel {
@@ -184,11 +193,13 @@ a:focus-visible {
   grid-template-rows: auto auto minmax(0, 1fr);
   gap: 0.72rem;
   overflow: hidden;
+  align-self: stretch;
 }
 
 .insights-rail {
   padding: 0.92rem;
   gap: 0.72rem;
+  align-self: stretch;
 }
 
 .eyebrow,
@@ -546,10 +557,12 @@ a:focus-visible {
 
 .overview-grid {
   min-height: 0;
+  height: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.72fr);
   grid-template-rows: minmax(0, 1fr);
   gap: 0.74rem;
+  align-items: stretch;
 }
 
 .overview-card {
@@ -567,6 +580,7 @@ a:focus-visible {
 
 .life-card {
   overflow: hidden;
+  align-self: stretch;
 }
 
 .life-grid {
@@ -644,6 +658,7 @@ a:focus-visible {
 
 .insight-stack {
   min-height: 0;
+  align-content: start;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.62rem;
@@ -865,6 +880,7 @@ a:focus-visible {
   .onepage-layout {
     padding: 0.55rem 0.6rem 0.8rem;
     gap: 0.5rem;
+    height: auto;
   }
 
   .control-rail,
