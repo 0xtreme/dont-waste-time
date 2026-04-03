@@ -417,26 +417,8 @@ a:focus-visible {
 
 .detail-row {
   display: grid;
-  gap: 0.6rem;
-}
-
-.detail-row-parents,
-.detail-row-pet {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.detail-row-children {
-  grid-template-columns: 0.9fr 1.1fr;
-}
-
-.detail-row-friend {
   grid-template-columns: 1fr;
-}
-
-#parentDistanceField,
-#petAgeField,
-.detail-row-friend .field {
-  grid-column: 1 / -1;
+  gap: 0.42rem;
 }
 
 .field {
@@ -468,6 +450,12 @@ a:focus-visible {
 .relationship-stack .field-label {
   font-size: 0.82rem;
   line-height: 1.15;
+}
+
+.relationship-stack .field {
+  gap: 0.38rem;
+  padding: 0.58rem 0.64rem;
+  border-radius: 0.9rem;
 }
 
 .field-value {
@@ -526,7 +514,7 @@ a:focus-visible {
   background: transparent;
   color: var(--text-secondary);
   border-radius: 999px;
-  padding: 0.34rem 0.4rem;
+  padding: 0.3rem 0.36rem;
   font-size: 0.66rem;
   font-weight: 700;
   min-width: 0;
