@@ -1,0 +1,7 @@
+[
+  {"type":"Dog","label":"Dog","lifespan":12},
+  {"type":"Cat","label":"Cat","lifespan":15},
+  {"type":"Bird","label":"Bird","lifespan":8},
+  {"type":"Rabbit","label":"Rabbit","lifespan":9},
+  {"type":"Other","label":"Other pet","lifespan":10}
+]

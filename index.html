@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Don't Waste Time</title>
+    <meta
+      name="description"
+      content="A quiet, client-side memento mori dashboard that turns your routines into a clearer view of the time that is really yours."
+    />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <div class="ambient ambient-a"></div>
+      <div class="ambient ambient-b"></div>
+      <div class="ambient ambient-c"></div>
+
+      <header class="chrome">
+        <a class="wordmark" href="./index.html">Don't Waste Time</a>
+        <nav class="mini-nav" aria-label="Secondary">
+          <a href="./about.html">About</a>
+          <a href="./methodology.html">Methodology</a>
+          <a href="./privacy.html">Privacy</a>
+          <button id="themeToggle" class="ghost-button" type="button" aria-label="Toggle theme">
+            Light
+          </button>
+        </nav>
+      </header>
+
+      <main id="app" class="app-shell">
+        <section id="landing" class="view view-active landing-view">
+          <div class="landing-copy">
+            <p class="eyebrow">A memento mori dashboard</p>
+            <h1>How much of your life is really yours?</h1>
+            <p class="lede">
+              Routine has a way of disguising itself as living. In under two minutes, this will
+              subtract the fixed parts and show you the discretionary time that still belongs to
+              you.
+            </p>
+            <div class="landing-actions">
+              <button id="startFlow" class="primary-button" type="button">Calculate</button>
+              <button id="loadSaved" class="ghost-button" type="button">Load saved profile</button>
+            </div>
+            <div class="landing-stat-row" id="ambientStats"></div>
+          </div>
+          <div class="landing-visual" aria-hidden="true">
+            <div class="hourglass-frame">
+              <div class="hourglass-top sand-top"></div>
+              <div class="hourglass-neck"></div>
+              <div class="hourglass-bottom sand-bottom"></div>
+              <div class="sand-stream"></div>
+            </div>
+            <div class="landing-quote">
+              <span>Sleep.</span>
+              <span>Commute.</span>
+              <span>Scroll.</span>
+              <span>Repeat.</span>
+              <strong>Then what?</strong>
+            </div>
+          </div>
+        </section>
+
+        <section id="onboarding" class="view onboarding-view" aria-live="polite">
+          <div class="panel onboarding-panel">
+            <div class="progress-strip">
+              <div class="progress-meta">
+                <span id="stepLabel">Step 1 of 4</span>
+                <span id="stepTitle">The basics</span>
+              </div>
+              <div class="progress-dots" aria-hidden="true">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+
+            <div id="stepHost" class="step-host"></div>
+
+            <div class="step-actions">
+              <button id="backStep" class="ghost-button" type="button">Back</button>
+              <button id="nextStep" class="primary-button" type="button">Next</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="reveal" class="view reveal-view">
+          <div class="panel reveal-panel">
+            <p class="eyebrow">The subtraction</p>
+            <div class="reveal-stage">
+              <div>
+                <p class="reveal-label">Your estimated remaining lifetime</p>
+                <h2 id="revealTotal" class="reveal-number">0 years</h2>
+              </div>
+              <div id="revealLedger" class="reveal-ledger"></div>
+              <div class="reveal-result">
+                <p class="reveal-label">What remains for the things that matter</p>
+                <h3 id="revealFree" class="hero-number">0 years</h3>
+                <p id="revealNarrative" class="reveal-narrative"></p>
+              </div>
+            </div>
+            <div class="step-actions reveal-actions">
+              <button id="skipReveal" class="ghost-button" type="button">Skip animation</button>
+              <button id="enterDashboard" class="primary-button" type="button" disabled>
+                Enter dashboard
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section id="dashboard" class="view dashboard-view">
+          <div class="hero-card panel">
+            <div class="hero-copy">
+              <p class="eyebrow">Your real time left</p>
+              <h2 id="heroFreeTime" class="hero-number">0 years</h2>
+              <p id="heroSupport" class="hero-support"></p>
+            </div>
+            <div class="hero-side">
+              <div class="metric-stack">
+                <div class="stat-pill">
+                  <span class="stat-label">Expected lifespan</span>
+                  <strong id="expectedLife"></strong>
+                </div>
+                <div class="stat-pill">
+                  <span class="stat-label">Routine burden / day</span>
+                  <strong id="routineBurden"></strong>
+                </div>
+                <div class="stat-pill stat-pill-accent">
+                  <span class="stat-label">Free hours / day</span>
+                  <strong id="freeHoursDay"></strong>
+                </div>
+              </div>
+              <div class="hero-actions">
+                <button id="editProfile" class="ghost-button" type="button">Adjust routine</button>
+                <button id="refreshInsights" class="ghost-button" type="button">Refresh insights</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="panel grid-panel">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Life in months</p>
+                  <h3>Your grid in context</h3>
+                </div>
+                <p id="gridMeta" class="section-note"></p>
+              </div>
+              <div id="lifeGridLegend" class="grid-legend"></div>
+              <div id="lifeGrid" class="life-grid"></div>
+            </section>
+
+            <aside class="panel sidebar-panel">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Presence over panic</p>
+                  <h3>What this means</h3>
+                </div>
+              </div>
+              <div id="reflectionCard" class="reflection-card"></div>
+              <div class="micro-metrics" id="microMetrics"></div>
+            </aside>
+          </div>
+
+          <section class="insights-panel">
+            <div class="section-head section-head-wide">
+              <div>
+                <p class="eyebrow">Rotating insights</p>
+                <h3>The numbers that land hardest</h3>
+              </div>
+              <p class="section-note">
+                Each card is generated on-device. Nothing leaves the browser unless you decide to
+                share it.
+              </p>
+            </div>
+            <div id="insightDeck" class="insight-deck"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <template id="rangeFieldTemplate">
+      <label class="field field-range">
+        <span class="field-header">
+          <span class="field-label"></span>
+          <span class="field-value"></span>
+        </span>
+        <input type="range" />
+        <small class="field-help"></small>
+      </label>
+    </template>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

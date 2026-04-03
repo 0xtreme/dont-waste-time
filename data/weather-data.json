@@ -1,0 +1,12 @@
+[
+  {"city":"Melbourne","country":"Australia","rainyDays":124,"clearNights":52,"sunnyDays":185,"sunrisesProbability":0.16,"seasonalLabel":"autumn leaf seasons"},
+  {"city":"Sydney","country":"Australia","rainyDays":143,"clearNights":65,"sunnyDays":206,"sunrisesProbability":0.15,"seasonalLabel":"jacaranda seasons"},
+  {"city":"Brisbane","country":"Australia","rainyDays":113,"clearNights":82,"sunnyDays":261,"sunrisesProbability":0.18,"seasonalLabel":"storm seasons"},
+  {"city":"Auckland","country":"New Zealand","rainyDays":136,"clearNights":58,"sunnyDays":203,"sunrisesProbability":0.15,"seasonalLabel":"harbour dawns"},
+  {"city":"London","country":"United Kingdom","rainyDays":109,"clearNights":34,"sunnyDays":145,"sunrisesProbability":0.09,"seasonalLabel":"autumn leaf seasons"},
+  {"city":"New York","country":"United States","rainyDays":119,"clearNights":78,"sunnyDays":224,"sunrisesProbability":0.14,"seasonalLabel":"fall color seasons"},
+  {"city":"Tokyo","country":"Japan","rainyDays":111,"clearNights":57,"sunnyDays":190,"sunrisesProbability":0.13,"seasonalLabel":"cherry blossom seasons"},
+  {"city":"Mumbai","country":"India","rainyDays":71,"clearNights":91,"sunnyDays":264,"sunrisesProbability":0.17,"seasonalLabel":"monsoon arrivals"},
+  {"city":"Singapore","country":"Singapore","rainyDays":171,"clearNights":48,"sunnyDays":179,"sunrisesProbability":0.12,"seasonalLabel":"orchid bloom cycles"},
+  {"city":"Toronto","country":"Canada","rainyDays":123,"clearNights":74,"sunnyDays":166,"sunrisesProbability":0.13,"seasonalLabel":"autumn leaf seasons"}
+]

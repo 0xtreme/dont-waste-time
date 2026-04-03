@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Methodology | Don't Waste Time</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div class="site-shell simple-page-shell">
+      <div class="ambient ambient-a"></div>
+      <div class="ambient ambient-c"></div>
+      <header class="chrome">
+        <a class="wordmark" href="./index.html">Don't Waste Time</a>
+        <nav class="mini-nav">
+          <a href="./index.html">App</a>
+          <a href="./about.html">About</a>
+          <a href="./privacy.html">Privacy</a>
+        </nav>
+      </header>
+      <main class="simple-page panel prose-panel">
+        <p class="eyebrow">Methodology</p>
+        <h1>How the calculations work</h1>
+        <p>
+          This app estimates remaining lifetime using a bundled country and gender life expectancy
+          table, then subtracts routine time from the remaining days to estimate discretionary time.
+        </p>
+        <h2>Core formula</h2>
+        <pre><code>remaining_life_years = max(life_expectancy - current_age, 0)
+remaining_days = remaining_life_years * 365.25
+routine_hours_per_day = sum(daily routine inputs)
+free_hours_per_day = max(24 - routine_hours_per_day, 0)
+total_free_hours_remaining = free_hours_per_day * remaining_days</code></pre>
+        <h2>Defaults</h2>
+        <p>
+          The routine sliders start from age-aware defaults for sleep, work or study, commuting,
+          meals, hygiene, chores, leisure screen time, and digital admin. Users can override all of
+          them before calculation.
+        </p>
+        <h2>Insights</h2>
+        <p>
+          Insight cards derive from the same stored profile. Examples include remaining meals,
+          Fridays, parent visits, child weekends before adulthood, full moons, and routine months
+          lost to sleep or commuting. Relationship-based insights appear only when enough optional
+          profile detail is present.
+        </p>
+        <h2>Data notes</h2>
+        <p>
+          The bundled dataset is an indicative MVP table compiled from recent public life expectancy
+          reference points and broad weather assumptions. It should be treated as reflective, not
+          medical or actuarial advice.
+        </p>
+        <p>
+          Source references are summarized from WHO, UN World Population Prospects, and general time
+          use benchmarks mentioned in the original product brief.
+        </p>
+      </main>
+    </div>
+  </body>
+</html>

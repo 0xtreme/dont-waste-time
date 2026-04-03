@@ -1,0 +1,32 @@
+{
+  "adult": {
+    "sleep": 7.5,
+    "work": 8,
+    "commute": 1,
+    "meals": 1.5,
+    "hygiene": 0.75,
+    "chores": 1,
+    "screen": 2,
+    "admin": 0.5
+  },
+  "student": {
+    "sleep": 8.5,
+    "work": 6.5,
+    "commute": 0.5,
+    "meals": 1,
+    "hygiene": 0.5,
+    "chores": 0.5,
+    "screen": 3,
+    "admin": 0.5
+  },
+  "older": {
+    "sleep": 7.75,
+    "work": 4,
+    "commute": 0.5,
+    "meals": 1.5,
+    "hygiene": 0.75,
+    "chores": 1,
+    "screen": 2.25,
+    "admin": 0.5
+  }
+}
