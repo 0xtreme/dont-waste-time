@@ -153,7 +153,7 @@ a:focus-visible {
   min-height: calc(100dvh - 2.9rem);
   height: calc(100dvh - 2.9rem);
   display: grid;
-  grid-template-columns: 244px minmax(0, 1fr) 618px;
+  grid-template-columns: 270px minmax(0, 1fr) 592px;
   gap: 0.8rem;
   padding: 0.7rem 1rem 0.95rem;
   align-items: stretch;
@@ -238,10 +238,10 @@ a:focus-visible {
 .rail-intro h1 {
   margin: 0.3rem 0 0;
   font-family: var(--font-display);
-  font-size: clamp(1.95rem, 3vw, 2.9rem);
+  font-size: clamp(1.7rem, 2.7vw, 2.45rem);
   line-height: 0.95;
   letter-spacing: -0.05em;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .rail-intro p:last-child,
@@ -261,23 +261,24 @@ a:focus-visible {
 
 .age-display-wrap {
   display: grid;
-  grid-template-columns: 44px 1fr 44px;
+  grid-template-columns: 40px 1fr 40px;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .age-display {
   display: grid;
   place-items: center;
-  padding: 0.8rem;
+  padding: 0.72rem 0.55rem;
   border-radius: 1.15rem;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
   border: 1px solid var(--line);
+  min-width: 0;
 }
 
 .age-display strong {
   font-family: var(--font-display);
-  font-size: clamp(2.45rem, 5.2vw, 3.8rem);
+  font-size: clamp(2.15rem, 4.5vw, 3.15rem);
   line-height: 0.9;
   color: var(--accent);
 }
@@ -285,7 +286,7 @@ a:focus-visible {
 .age-display span {
   color: var(--text-secondary);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.64rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -302,9 +303,12 @@ a:focus-visible {
 }
 
 .age-button {
-  width: 44px;
-  height: 44px;
-  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  display: grid;
+  place-items: center;
+  min-width: 0;
 }
 
 .ghost-button,
